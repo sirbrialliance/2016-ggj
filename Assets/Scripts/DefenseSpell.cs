@@ -2,15 +2,22 @@
 using System.Collections;
 
 public class DefenseSpell : MonoBehaviour {
-	public Wizard target;
 	public ElementType element;
 	public SpellType type;
 
-	void Start() {
+	float startTime;
+
+	public void Awake() {
+		Debug.Log("call start " + Time.time);
+		startTime = Time.time;
 	
 	}
-	
-	void Update() {
-	
+
+	public bool IsExpired {
+		get {
+			Debug.Log("t " + (Time.time - startTime));
+			return Time.time - startTime > 3;
+		}
 	}
+	
 }

@@ -27,7 +27,8 @@ public class FlyingSpell : MonoBehaviour {
 
 		if (t >= 1) {
 			target.BeenHit(this);
-			Destroy(gameObject);
+			Destructor.DoCleanup(gameObject);
+			Destroy(this);
 		} else {
 			transform.position = Vector3.Lerp(initialPos, target.transform.position, t);
 		}

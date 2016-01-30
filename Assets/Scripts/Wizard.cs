@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 
 [RequireComponent(typeof(WizardInput))]
 public class Wizard : MonoBehaviour {
@@ -13,6 +13,8 @@ public class Wizard : MonoBehaviour {
 	Vector3 baseHPScale;
 	Transform hpBar;
 
+	List<DefenseSpell> defenses = new List<DefenseSpell>();
+
 	void Start() {
 		input = GetComponent<WizardInput>();
 		input.wizard = this;
@@ -25,6 +27,15 @@ public class Wizard : MonoBehaviour {
 	
 	void Update() {
 		if (!target) ChangeTarget();
+
+		for (int i = 0 ; i < defenses.Count; ++i) {
+			if (defenses[i].IsExpired) {
+				Destructor.DoCleanup(defenses[i].gameObject);
+				defenses.RemoveAt(i);
+				Debug.Log("expire defense");
+				--i;
+			}
+		}
 
 	
 	}
@@ -40,16 +51,41 @@ public class Wizard : MonoBehaviour {
 			spell.element = element;
 			spell.target = target;
 		} else {
-			var go = Instantiate(GameManager.Instance.attackEffcts[(int)element]);
+			var go = Instantiate(GameManager.Instance.defendEffcts[(int)element]);
 			go.name = "Defense";
 			go.transform.position = transform.position;
 
+			var ds = go.AddComponent<DefenseSpell>();
+			ds.type = spellType;
+			ds.element = element;
+
+			defenses.Add(ds);
 		}
 
 	}
 
 	public void BeenHit(FlyingSpell spell) {
-		hp -= 50;
+		var slightlyDefended = false;
+
+		//Wrong elements cut through unalike defenses with little issue
+		while (defenses.Count > 0) {
+
+			if (defenses[0].element != spell.element) {
+				Destructor.DoCleanup(defenses[0].gameObject);
+				defenses.RemoveAt(0);
+				slightlyDefended = true;
+			} else {
+				//match
+				Destructor.DoCleanup(defenses[0].gameObject);
+				defenses.RemoveAt(0);
+				//no damage
+				return;
+			}
+		}
+
+		if (slightlyDefended) hp -= 18;
+		else hp -= 20;
+
 		UpdateDamage();
 	}
 
