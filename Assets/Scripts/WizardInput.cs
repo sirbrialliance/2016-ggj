@@ -5,12 +5,13 @@ using System.Collections.Generic;
 public class WizardInput : MonoBehaviour {
 	string input = "";
 
-	const float cooldownTime = .5f;
+	const float cooldownTime = 1.5f;
 
 
 	public Wizard wizard;
 
 	float inputFreezeTime = 0;
+	bool frezzeFromFizzle;
 
 	void fizzle() {
 		input = "";
@@ -20,6 +21,7 @@ public class WizardInput : MonoBehaviour {
 		StartCoroutine(ClearFizzle(fe));
 
 		FreezeInput();
+		frezzeFromFizzle = true;
 	}
 
 	private IEnumerator ClearFizzle(GameObject fe) {
@@ -31,6 +33,7 @@ public class WizardInput : MonoBehaviour {
 	public void FreezeInput() {
 		input = "";
 		inputFreezeTime = Time.time;
+		frezzeFromFizzle = false;
 	}
 
 	public bool InputFrozen {
@@ -110,7 +113,7 @@ public class WizardInput : MonoBehaviour {
 		if (InputFrozen) {
 			return new CastState{
 				percent = 0,
-				color = Color.black,
+				color = frezzeFromFizzle ? Color.black : new Color(.5f, .5f, .5f, .3f),
 				element = ElementType.SpellCooldown,
 			};
 		}
