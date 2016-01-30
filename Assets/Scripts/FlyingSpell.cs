@@ -22,15 +22,11 @@ public class FlyingSpell : MonoBehaviour {
 		castTime = Time.time;
 		initialPos = transform.position;
 
-<<<<<<< HEAD
 		if (element != ElementType.Earth) {
 			transform.LookAt (target.transform.position);
 		}
-=======
-		transform.LookAt(target.transform.position);
 
 		flyTime *= .8f;
->>>>>>> fdb92ea317a2d8b2747d8fe06e3e4584841db7c8
 	}
 	
 	void Update() {
