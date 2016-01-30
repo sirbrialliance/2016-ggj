@@ -10,7 +10,7 @@ public class FlyingSpell : MonoBehaviour {
 
 	Vector3 initialPos;
 	float castTime;
-	float flyTime = 5;
+	float flyTime = 7;
 
 	void Start() {
 	}
