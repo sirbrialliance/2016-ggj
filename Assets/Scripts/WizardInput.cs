@@ -27,6 +27,11 @@ public class WizardInput : MonoBehaviour {
 	}
 
 	void Update () {
+		if (wizard.playerNumber == 1) {
+			if (Input.GetKeyDown(KeyCode.A)) wizard.CastSpell(ElementType.Fire, SpellType.Attack);
+			if (Input.GetKeyDown(KeyCode.W)) wizard.ChangeTarget();
+
+		}
 	
 		if (Input.anyKeyDown) {
 			if (Input.GetKeyDown (KeyCode.W))
