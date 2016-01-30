@@ -31,7 +31,7 @@ public class Wizard : MonoBehaviour {
 
 	public void CastSpell(ElementType element, SpellType spellType) {
 		if (spellType == SpellType.Attack) {
-			var go = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+			var go = Instantiate(GameManager.Instance.attackEffcts[(int)element]);
 			go.name = "Spell";
 			go.transform.position = transform.position;
 			var spell = go.AddComponent<FlyingSpell>();
@@ -40,6 +40,9 @@ public class Wizard : MonoBehaviour {
 			spell.element = element;
 			spell.target = target;
 		} else {
+			var go = Instantiate(GameManager.Instance.attackEffcts[(int)element]);
+			go.name = "Defense";
+			go.transform.position = transform.position;
 
 		}
 

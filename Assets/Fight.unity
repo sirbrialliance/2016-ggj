@@ -208,8 +208,15 @@ MonoBehaviour:
   - {fileID: 1612387727}
   - {fileID: 34105715}
   - {fileID: 623097507}
-  attackEffcts: []
-  defendEffcts: []
+  attackEffcts:
+  - {fileID: 127748, guid: 6060fc417af7392499e4daf9ee66f793, type: 2}
+  - {fileID: 127748, guid: 9405ff9c7b8cfd146b0f8716dfb218fd, type: 2}
+  - {fileID: 127748, guid: 6060fc417af7392499e4daf9ee66f793, type: 2}
+  defendEffcts:
+  - {fileID: 127748, guid: fbe3eb60f72d588498b6aaa0ce3c9c75, type: 2}
+  - {fileID: 127748, guid: 1ebce267a04a77844a1884bd79cf1947, type: 2}
+  - {fileID: 127748, guid: 461c7010124cc62478a0d17128ce7a45, type: 2}
+  fizzleEffect: {fileID: 127748, guid: c830cf01086808f4f8cf1678b5953b83, type: 2}
 --- !u!4 &169444820
 Transform:
   m_ObjectHideFlags: 0
@@ -221,7 +228,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!1001 &172314632
 Prefab:
   m_ObjectHideFlags: 0
@@ -332,7 +339,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!114 &623097507 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11416250, guid: 870076c85609a984abb5691ea541a8b5,
@@ -388,52 +395,6 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 870076c85609a984abb5691ea541a8b5, type: 2}
-  m_IsPrefabParent: 0
---- !u!1001 &1274356776
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 462894, guid: fbe3eb60f72d588498b6aaa0ce3c9c75, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -0.76742554
-      objectReference: {fileID: 0}
-    - target: {fileID: 462894, guid: fbe3eb60f72d588498b6aaa0ce3c9c75, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 9.199502
-      objectReference: {fileID: 0}
-    - target: {fileID: 462894, guid: fbe3eb60f72d588498b6aaa0ce3c9c75, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 462894, guid: fbe3eb60f72d588498b6aaa0ce3c9c75, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 462894, guid: fbe3eb60f72d588498b6aaa0ce3c9c75, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 462894, guid: fbe3eb60f72d588498b6aaa0ce3c9c75, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 462894, guid: fbe3eb60f72d588498b6aaa0ce3c9c75, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 462894, guid: fbe3eb60f72d588498b6aaa0ce3c9c75, type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 19898210, guid: fbe3eb60f72d588498b6aaa0ce3c9c75, type: 2}
-      propertyPath: InitialModule.startColor.maxColor.rgba
-      value: 4294909534
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: fbe3eb60f72d588498b6aaa0ce3c9c75, type: 2}
   m_IsPrefabParent: 0
 --- !u!114 &1612387727 stripped
 MonoBehaviour:

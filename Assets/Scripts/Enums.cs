@@ -1,6 +1,6 @@
 ﻿public enum ElementType {
-	Fire,
 	Earth,
+	Fire,
 	Ice,
 }
 

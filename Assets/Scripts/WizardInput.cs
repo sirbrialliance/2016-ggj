@@ -21,9 +21,9 @@ public class WizardInput : MonoBehaviour {
 	}
 
 	void fizzle(){
-		//Inputs.clear ();
 		Inputs.Clear();
-		Debug.Log ("fizzle");
+		var fe = GameObject.Instantiate(GameManager.Instance.fizzleEffect);
+		fe.transform.position = transform.position;
 	}
 
 	void GetInput() {
