@@ -41,6 +41,8 @@ public class Wizard : MonoBehaviour {
 	}
 
 	public void CastSpell(ElementType element, SpellType spellType) {
+		input.FreezeInput();
+
 		if (spellType == SpellType.Attack) {
 			var go = Instantiate(GameManager.Instance.attackEffcts[(int)element]);
 			go.name = "Spell";

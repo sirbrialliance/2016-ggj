@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour {
 	public List<GameObject> defendEffcts;
 	public GameObject fizzleEffect;
 
+	public GameObject winScreen;
+
 	public Wizard GetNext(Wizard me, Wizard currTarget) {
 		Assert.IsTrue(players.Contains(me));
 		if (currTarget) Assert.IsTrue(players.Contains(currTarget));
@@ -41,13 +43,14 @@ public class GameManager : MonoBehaviour {
 		Destroy(wizard.gameObject);
 
 		if (players.Count == 1) {
-			WinScreen();
+			YouWin();
 		}
 		
 	}
 
-	private void WinScreen() {
+	private void YouWin() {
 		Debug.Log("You win!");
+		winScreen.SetActive(true);
 		
 	}
 }
