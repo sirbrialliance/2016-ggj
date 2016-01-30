@@ -15,6 +15,8 @@ public class SpellList : MonoBehaviour {
 			desc += "\n";
 		}
 
+		desc += "Cancel/Change Target: ▲\n";
+
 
 
 		GetComponent<Text>().text = desc;	

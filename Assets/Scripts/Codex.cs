@@ -58,9 +58,9 @@ public static class Codex {
 	};
 
 	public static Dictionary<char, string> displayChars = new Dictionary<char, string>{
-		{'l', "<"},
-		{'d', "•"},
-		{'r', ">"},
+		{'l', "◀"},
+		{'d', "▼"},
+		{'r', "▶"},
 		{'u', "↶"},
 	};
 

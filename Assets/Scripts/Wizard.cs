@@ -37,7 +37,6 @@ public class Wizard : MonoBehaviour {
 			if (defenses[i].IsExpired) {
 				Destructor.DoCleanup(defenses[i].gameObject);
 				defenses.RemoveAt(i);
-				Debug.Log("expire defense");
 				--i;
 			}
 		}
