@@ -15,7 +15,8 @@ public class FlyingSpell : MonoBehaviour {
 		castTime = Time.time;
 		initialPos = transform.position;
 
-	
+		transform.LookAt (target.transform.position);
+
 	}
 	
 	void Update() {

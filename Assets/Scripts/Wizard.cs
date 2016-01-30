@@ -59,6 +59,12 @@ public class Wizard : MonoBehaviour {
 			ds.type = spellType;
 			ds.element = element;
 
+			//only one block at a time
+			foreach (var defense in defenses) {
+				Destructor.DoCleanup(defense.gameObject);
+			}
+			defenses.Clear();
+
 			defenses.Add(ds);
 		}
 
@@ -75,9 +81,9 @@ public class Wizard : MonoBehaviour {
 				defenses.RemoveAt(0);
 				slightlyDefended = true;
 			} else {
-				//match
-				Destructor.DoCleanup(defenses[0].gameObject);
-				defenses.RemoveAt(0);
+				//matches element, cancel instantly
+				Destroy(spell.gameObject);
+
 				//no damage
 				return;
 			}
