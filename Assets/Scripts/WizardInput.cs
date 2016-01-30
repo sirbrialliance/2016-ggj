@@ -5,13 +5,12 @@ using System.Collections.Generic;
 public class WizardInput : MonoBehaviour {
 	string input = "";
 
+	const float cooldownTime = .5f;
 
 
 	public Wizard wizard;
-	// Use this for initialization
-	void Start () {
 
-	}
+	float inputFreezeTime = 0;
 
 	void fizzle() {
 		input = "";
@@ -19,11 +18,19 @@ public class WizardInput : MonoBehaviour {
 		fe.transform.position = transform.position;
 
 		StartCoroutine(ClearFizzle(fe));
+
+		FreezeInput();
 	}
 
 	private IEnumerator ClearFizzle(GameObject fe) {
 		yield return new WaitForSeconds(5f);
 		Destructor.DoCleanup(fe);
+	}
+
+	/** Stops the player form casting for a period of time. */
+	public void FreezeInput() {
+		input = "";
+		inputFreezeTime = Time.time;
 	}
 
 	void GetInput() {
@@ -65,6 +72,10 @@ public class WizardInput : MonoBehaviour {
 				input += "r";
 		}
 
+		//allow aiming, but not new spell strokes if in cooldown
+		if (inputFreezeTime != 0 && Time.time - inputFreezeTime < cooldownTime) {
+			input = "";
+		}
 	}
 
 	void Special() {

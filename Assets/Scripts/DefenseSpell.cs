@@ -14,7 +14,7 @@ public class DefenseSpell : MonoBehaviour {
 
 	public bool IsExpired {
 		get {
-			return Time.time - startTime > 3;
+			return Time.time - startTime > 6;
 		}
 	}
 	

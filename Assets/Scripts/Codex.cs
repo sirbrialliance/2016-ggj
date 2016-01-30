@@ -14,38 +14,38 @@ public static class Codex {
 			name = "Ice Attack",
 			type = SpellType.Attack,
 			element = ElementType.Ice,
-			sequence = "rdr",
+			sequence = "rlrdl",
 		},
 		new SpellRecipie{
 			name = "Fire Attack",
 			type = SpellType.Attack,
 			element = ElementType.Fire,
-			sequence = "ldr",
+			sequence = "lldrl",
 		},
 		new SpellRecipie{
 			name = "Earth Attack",
 			type = SpellType.Attack,
 			element = ElementType.Earth,
-			sequence = "ddr",
+			sequence = "ddrrl",
 		},
 
 		new SpellRecipie{
-			name = "Ice Defend",
+			name = "Block Ice",
 			type = SpellType.Defend,
 			element = ElementType.Ice,
-			sequence = "rdd",
+			sequence = "lrlrd",
 		},
 		new SpellRecipie{
-			name = "Fire Defend",
+			name = "Block Fire",
 			type = SpellType.Defend,
 			element = ElementType.Fire,
-			sequence = "ldd",
+			sequence = "drrrll",
 		},
 		new SpellRecipie{
-			name = "Earth Defend",
+			name = "Block Earth",
 			type = SpellType.Defend,
 			element = ElementType.Earth,
-			sequence = "ddd",
+			sequence = "rrldd",
 		},
 
 	};
