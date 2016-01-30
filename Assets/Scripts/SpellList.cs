@@ -11,12 +11,17 @@ public class SpellList : MonoBehaviour {
 		foreach (var spell in Codex.spells) {
 			if (spell.type != lastType) desc += "\n";
 
-			desc += spell.name + ": ";
+			var line = "";
+
+			line += spell.name + ": ";
+			line += new string('\t', 5 - line.Length / 4);
 			foreach (var c in spell.sequence) {
-				desc += Codex.displayChars[c];
+				line += Codex.displayChars[c];
 			}
 
-			desc += "\n";
+			desc += "<color=#" + ColorUtility.ToHtmlStringRGB(spell.color) + ">";
+			desc += line;
+			desc += "</color>\n";
 
 			lastType = spell.type;
 		}
