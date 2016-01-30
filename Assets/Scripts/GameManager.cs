@@ -15,12 +15,10 @@ public class GameManager : MonoBehaviour {
 		Wizard target = currTarget;
 
 		var idx = players.IndexOf(currTarget);
-		if (idx < 0) players.IndexOf(me);
+		if (idx < 0) idx = players.IndexOf(me);
 
 		target = players[(idx + 1) % players.Count];
 		if (target == me) target = players[(idx + 2) % players.Count];
-
-		Debug.Log("new target it " + target);
 
 		return target;
 	}
@@ -32,5 +30,20 @@ public class GameManager : MonoBehaviour {
 	
 	void Update() {
 	
+	}
+
+	public void KillPlayer(Wizard wizard) {
+		players.Remove(wizard);
+		Destroy(wizard.gameObject);
+
+		if (players.Count == 1) {
+			WinScreen();
+		}
+		
+	}
+
+	private void WinScreen() {
+		Debug.Log("You win!");
+		
 	}
 }

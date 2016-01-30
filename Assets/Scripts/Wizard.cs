@@ -4,16 +4,23 @@ using System.Collections;
 [RequireComponent(typeof(WizardInput))]
 public class Wizard : MonoBehaviour {
 	
-	public int hp = 100;
+	public const int maxHP = 100;
+	public int hp = maxHP;
 	public int playerNumber = 1;
 
 	WizardInput input;
 	Wizard target;
+	Vector3 baseHPScale;
+	Transform hpBar;
 
 	void Start() {
 		input = GetComponent<WizardInput>();
 		input.wizard = this;
 
+		hpBar = transform.FindChild("HP");
+		baseHPScale = hpBar.transform.localScale;
+
+		UpdateDamage();
 	}
 	
 	void Update() {
@@ -39,15 +46,16 @@ public class Wizard : MonoBehaviour {
 	}
 
 	public void BeenHit(FlyingSpell spell) {
-		hp += 20;
+		hp -= 50;
 		UpdateDamage();
 	}
 
 	void UpdateDamage() {
-		var hpBar = transform.FindChild("HP");
-		var scale = hpBar.localScale;
-		scale.y = hp / 100f;
+		var scale = baseHPScale;
+		scale.y *= hp / (float)maxHP;
 		hpBar.localScale = scale;
+
+		if (hp <= 0) GameManager.Instance.KillPlayer(this);
 	}
 
 	public void ChangeTarget() {
