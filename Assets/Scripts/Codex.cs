@@ -7,60 +7,94 @@ public static class Codex {
 		public SpellType type;
 		public ElementType element;
 		public string sequence;
+		public int sequenceLength;
 		public Color color;
 	}
 
 	public static List<SpellRecipe> spells = new List<SpellRecipe> {
 		new SpellRecipe{
-			name = "Ice Attack",
+			name = "Icicle Crash",
 			type = SpellType.Attack,
 			element = ElementType.Ice,
-			sequence = "rlrdl",
+			sequenceLength = 4,
 			color = Color.blue,
 		},
 		new SpellRecipe{
-			name = "Fire Attack",
+			name = "Lava Lash",
 			type = SpellType.Attack,
 			element = ElementType.Fire,
-			sequence = "lldrl",
+			sequenceLength = 4,
 			color = Color.red,
 		},
 		new SpellRecipe{
-			name = "Earth Attack",
+			name = "Shale Shatter",
 			type = SpellType.Attack,
 			element = ElementType.Earth,
-			sequence = "ddrrl",
+			sequenceLength = 4,
 			color = Color.green,
 		},
 
 		new SpellRecipe{
-			name = "Block Ice",
+			name = "Ice Aegis",
 			type = SpellType.Defend,
 			element = ElementType.Ice,
-			sequence = "lrlrd",
+			sequenceLength = 3,
 			color = Color.blue,
 		},
 		new SpellRecipe{
-			name = "Block Fire",
+			name = "Lava Aegis",
 			type = SpellType.Defend,
 			element = ElementType.Fire,
-			sequence = "drrrll",
+			sequenceLength = 3,
 			color = Color.red,
 		},
 		new SpellRecipe{
-			name = "Block Earth",
+			name = "Stone Aegis",
 			type = SpellType.Defend,
 			element = ElementType.Earth,
-			sequence = "rrldd",
+			sequenceLength = 3,
 			color = Color.green,
 		},
 
 	};
 
+	private static string MakeSpell(int len) {
+		var ret = "";
+		while (ret.Length < len) {
+			switch (Random.Range(0, 3)) {
+				case 0: ret += "l"; break;
+				case 1: ret += "r"; break;
+				case 2: ret += "d"; break;
+			}
+		}
+		return ret;
+	}
+
+	public static void CreateSpells() {
+		foreach (var spell in spells) {
+
+			var needSpell = true;
+			while (needSpell) {
+				spell.sequence = MakeSpell(spell.sequenceLength);
+				needSpell = false;
+
+				//does the spell overlap anything?
+				foreach (var otherSpell in spells) {
+					if (string.IsNullOrEmpty(otherSpell.sequence)) continue;
+					if (otherSpell == spell) continue;
+
+					if (otherSpell.sequence.StartsWith(spell.sequence) || spell.sequence.StartsWith(otherSpell.sequence)) {
+						needSpell = true;
+					}
+				}
+			}
+		}
+	}
+
 	public static Dictionary<char, string> displayChars = new Dictionary<char, string>{
-		{'l', "<"},
-		{'d', "•"},
-		{'r', ">"},
+		{'l', "◀"},
+		{'d', "▼"},
+		{'r', "▶"},
 		{'u', "↶"},
 	};
 
