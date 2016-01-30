@@ -1,7 +1,7 @@
 ﻿public enum ElementType {
 	Fire,
 	Earth,
-	Ices
+	Ice,
 }
 
 public enum SpellType {

@@ -9,7 +9,8 @@ public class FlyingSpell : MonoBehaviour {
 
 	Vector3 initialPos;
 	float castTime;
-	float flyTime = 5;
+	float flyTime = 1;
+	//float flyTime = 5;
 
 	void Start() {
 		castTime = Time.time;
@@ -19,11 +20,15 @@ public class FlyingSpell : MonoBehaviour {
 	}
 	
 	void Update() {
+		if (!target) {
+			Destroy(gameObject);
+			return;
+		}
 		var t = (Time.time - castTime) / flyTime;
 
 		if (t >= 1) {
 			target.BeenHit(this);
-			Destroy(this);
+			Destroy(gameObject);
 		} else {
 			transform.position = Vector3.Lerp(initialPos, target.transform.position, t);
 		}
