@@ -75,8 +75,9 @@ public class Wizard : MonoBehaviour {
 				defenses.RemoveAt(0);
 				slightlyDefended = true;
 			} else {
-				//match
-				Destructor.DoCleanup(defenses[0].gameObject);
+				//matches, cancel each other instantly
+				Destroy(spell.gameObject);
+				Destroy(defenses[0].gameObject);
 				defenses.RemoveAt(0);
 				//no damage
 				return;

@@ -3,14 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class WizardInput : MonoBehaviour {
-
-	/*
-		fire attack: left, down, right
-		fire defend: left, down, down
-		ice attack: down, left, right
-
-	*/
-
 	string input = "";
 
 
