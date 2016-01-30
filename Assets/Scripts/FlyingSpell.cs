@@ -9,8 +9,7 @@ public class FlyingSpell : MonoBehaviour {
 
 	Vector3 initialPos;
 	float castTime;
-	float flyTime = 1;
-	//float flyTime = 5;
+	float flyTime = 5;
 
 	void Start() {
 		castTime = Time.time;

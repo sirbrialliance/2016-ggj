@@ -7,6 +7,10 @@ public class GameManager : MonoBehaviour {
 
 	public List<Wizard> players;
 
+	public List<GameObject> attackEffcts;
+	public List<GameObject> defendEffcts;
+	GameObject fizzleEffect;
+
 	public Wizard GetNext(Wizard me, Wizard currTarget) {
 		Assert.IsTrue(players.Contains(me));
 		if (currTarget) Assert.IsTrue(players.Contains(currTarget));

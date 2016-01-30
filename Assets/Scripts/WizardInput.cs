@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 
 public class WizardInput : MonoBehaviour {
 
@@ -10,7 +10,7 @@ public class WizardInput : MonoBehaviour {
 
 	*/
 
-	public ArrayList Inputs = new ArrayList();
+	public List<string> Inputs = new List<string>();
 
 
 
