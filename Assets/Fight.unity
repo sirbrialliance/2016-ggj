@@ -171,7 +171,7 @@ RectTransform:
   - {fileID: 778185044}
   - {fileID: 1454629545}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -300,6 +300,7 @@ MonoBehaviour:
   - {fileID: 1612387727}
   - {fileID: 34105715}
   - {fileID: 623097507}
+  - {fileID: 1003230515}
   attackEffcts:
   - {fileID: 127748, guid: 6060fc417af7392499e4daf9ee66f793, type: 2}
   - {fileID: 127748, guid: 9405ff9c7b8cfd146b0f8716dfb218fd, type: 2}
@@ -330,11 +331,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 442118, guid: 870076c85609a984abb5691ea541a8b5, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 6.83
+      value: 4.95
       objectReference: {fileID: 0}
     - target: {fileID: 442118, guid: 870076c85609a984abb5691ea541a8b5, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2.72
+      value: -0.02
       objectReference: {fileID: 0}
     - target: {fileID: 442118, guid: 870076c85609a984abb5691ea541a8b5, type: 2}
       propertyPath: m_LocalPosition.z
@@ -362,11 +363,61 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 163672, guid: 870076c85609a984abb5691ea541a8b5, type: 2}
       propertyPath: m_Name
-      value: Wizard (1)
+      value: Wizard 2
       objectReference: {fileID: 0}
     - target: {fileID: 11416250, guid: 870076c85609a984abb5691ea541a8b5, type: 2}
       propertyPath: playerNumber
       value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 870076c85609a984abb5691ea541a8b5, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &285410190
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 442118, guid: 870076c85609a984abb5691ea541a8b5, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -4.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 442118, guid: 870076c85609a984abb5691ea541a8b5, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 442118, guid: 870076c85609a984abb5691ea541a8b5, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 442118, guid: 870076c85609a984abb5691ea541a8b5, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 442118, guid: 870076c85609a984abb5691ea541a8b5, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 442118, guid: 870076c85609a984abb5691ea541a8b5, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 442118, guid: 870076c85609a984abb5691ea541a8b5, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 442118, guid: 870076c85609a984abb5691ea541a8b5, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 163672, guid: 870076c85609a984abb5691ea541a8b5, type: 2}
+      propertyPath: m_Name
+      value: Wizard 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11416250, guid: 870076c85609a984abb5691ea541a8b5, type: 2}
+      propertyPath: playerNumber
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 870076c85609a984abb5691ea541a8b5, type: 2}
@@ -427,7 +478,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 600224575}
   m_LocalRotation: {x: 0.40821794, y: -0.23456973, z: 0.109381676, w: 0.87542605}
-  m_LocalPosition: {x: 0.25, y: 3, z: 0}
+  m_LocalPosition: {x: 1.29, y: 7.78, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -583,7 +634,13 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
+--- !u!114 &1003230515 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11416250, guid: 870076c85609a984abb5691ea541a8b5,
+    type: 2}
+  m_PrefabInternal: {fileID: 285410190}
+  m_Script: {fileID: 11500000, guid: 96a71c3b052814d4381f77668d027a60, type: 3}
 --- !u!1001 &1086138751
 Prefab:
   m_ObjectHideFlags: 0
@@ -593,11 +650,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 442118, guid: 870076c85609a984abb5691ea541a8b5, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 1.62
+      value: 0.12
       objectReference: {fileID: 0}
     - target: {fileID: 442118, guid: 870076c85609a984abb5691ea541a8b5, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -3.15
+      value: -3.86
       objectReference: {fileID: 0}
     - target: {fileID: 442118, guid: 870076c85609a984abb5691ea541a8b5, type: 2}
       propertyPath: m_LocalPosition.z
@@ -625,7 +682,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 163672, guid: 870076c85609a984abb5691ea541a8b5, type: 2}
       propertyPath: m_Name
-      value: Wizard (2)
+      value: Wizard 3
       objectReference: {fileID: 0}
     - target: {fileID: 11416250, guid: 870076c85609a984abb5691ea541a8b5, type: 2}
       propertyPath: playerNumber
@@ -724,11 +781,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 442118, guid: 870076c85609a984abb5691ea541a8b5, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -2.08
+      value: 0.34
       objectReference: {fileID: 0}
     - target: {fileID: 442118, guid: 870076c85609a984abb5691ea541a8b5, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2.41
+      value: 3.72
       objectReference: {fileID: 0}
     - target: {fileID: 442118, guid: 870076c85609a984abb5691ea541a8b5, type: 2}
       propertyPath: m_LocalPosition.z
@@ -753,6 +810,10 @@ Prefab:
     - target: {fileID: 442118, guid: 870076c85609a984abb5691ea541a8b5, type: 2}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 163672, guid: 870076c85609a984abb5691ea541a8b5, type: 2}
+      propertyPath: m_Name
+      value: Wizard 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 870076c85609a984abb5691ea541a8b5, type: 2}
