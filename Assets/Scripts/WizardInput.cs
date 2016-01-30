@@ -11,18 +11,18 @@ public class WizardInput : MonoBehaviour {
 
 	*/
 
-	public List<string> Inputs = new List<string>();
+	string input = "";
 
 
 
 	public Wizard wizard;
 	// Use this for initialization
 	void Start () {
-	
+
 	}
 
-	void fizzle(){
-		Inputs.Clear();
+	void fizzle() {
+		input = "";
 		var fe = GameObject.Instantiate(GameManager.Instance.fizzleEffect);
 		fe.transform.position = transform.position;
 
@@ -39,84 +39,72 @@ public class WizardInput : MonoBehaviour {
 			if (Input.GetKeyDown(KeyCode.W))
 				Special();
 			else if (Input.GetKeyDown(KeyCode.A))
-				Inputs.Add("left");
+				input += "l";
 			else if (Input.GetKeyDown(KeyCode.S))
-				Inputs.Add("down");
+				input += "d";
 			else if (Input.GetKeyDown(KeyCode.D))
-				Inputs.Add("right");
+				input += "r";
 		} else if (wizard.playerNumber == 2) {
-			if (Input.GetKeyDown(KeyCode.I))
+			if (Input.GetKeyDown(KeyCode.U))
 				Special();
+			else if (Input.GetKeyDown(KeyCode.H))
+				input += "l";
 			else if (Input.GetKeyDown(KeyCode.J))
-				Inputs.Add("left");
+				input += "d";
 			else if (Input.GetKeyDown(KeyCode.K))
-				Inputs.Add("down");
-			else if (Input.GetKeyDown(KeyCode.L))
-				Inputs.Add("right");
+				input += "r";
 		} else if (wizard.playerNumber == 3) {
 			if (Input.GetKeyDown(KeyCode.UpArrow))
 				Special();
 			else if (Input.GetKeyDown(KeyCode.LeftArrow))
-				Inputs.Add("left");
+				input += "l";
 			else if (Input.GetKeyDown(KeyCode.DownArrow))
-				Inputs.Add("down");
+				input += "d";
 			else if (Input.GetKeyDown(KeyCode.RightArrow))
-				Inputs.Add("right");
+				input += "r";
 		} else if (wizard.playerNumber == 4) {
 			if (Input.GetKeyDown(KeyCode.Keypad8))
 				Special();
 			else if (Input.GetKeyDown(KeyCode.Keypad4))
-				Inputs.Add("left");
+				input += "l";
 			else if (Input.GetKeyDown(KeyCode.Keypad5))
-				Inputs.Add("down");
+				input += "d";
 			else if (Input.GetKeyDown(KeyCode.Keypad6))
-				Inputs.Add("right");
+				input += "r";
 		}
 
 	}
 
 	void Special() {
-		if (Inputs.Count == 0) wizard.ChangeTarget();
-		else Inputs.Clear();
+		if (input.Length == 0) wizard.ChangeTarget();
+		else input = "";
 	}
 
 	void Update () {
-		//if (wizard.playerNumber == 1) {
-		//	if (Input.GetKeyDown(KeyCode.A)) wizard.CastSpell(ElementType.Fire, SpellType.Attack);
-		//if (Input.GetKeyDown(KeyCode.W)) wizard.ChangeTarget();
+		var numIn = input.Length;
 
-		//}
 		GetInput();
 
-	
-		if (Inputs.Count == 3) {
-			if (Inputs[0]== "left") {
-				if (Inputs[1] == "down") {
-					if (Inputs[2] == "right") {
-						wizard.CastSpell (ElementType.Fire, SpellType.Attack);
-						Inputs.Clear();
-						Debug.Log ("Fire attack");
-					} else if (Inputs[2] == "down") {
-						wizard.CastSpell (ElementType.Fire, SpellType.Defend);
-						Inputs.Clear();
-						Debug.Log ("Fire defend");
-					} else
-						fizzle ();
-				} else
-					fizzle ();
-			} else if (Inputs[0] == "down") {
-				if (Inputs[1] == "left") {
-					if (Inputs[2] == "right") {
-						wizard.CastSpell (ElementType.Ice, SpellType.Attack);
-						Inputs.Clear();
-						Debug.Log ("Ice attack");
-					} else
-						fizzle ();
-				} else
-					fizzle ();
-			} else
-				fizzle ();
+		if (numIn != input.Length) {
+			Recognize();
 		}
-			
 	}
+
+	protected void Recognize() {
+		var mayBeValid = false;
+
+		foreach (var spell in Codex.spells) {
+			if (input == spell.sequence) {
+				wizard.CastSpell(spell.element, spell.type);
+				input = "";
+				return;
+			}
+			if (spell.sequence.StartsWith(input)) {
+				mayBeValid = true;
+			}
+		}
+
+		if (!mayBeValid) fizzle();
+	}
+	
 }
