@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 
 public class WizardInput : MonoBehaviour {
@@ -24,6 +25,13 @@ public class WizardInput : MonoBehaviour {
 		Inputs.Clear();
 		var fe = GameObject.Instantiate(GameManager.Instance.fizzleEffect);
 		fe.transform.position = transform.position;
+
+		StartCoroutine(ClearFizzle(fe));
+	}
+
+	private IEnumerator ClearFizzle(GameObject fe) {
+		yield return new WaitForSeconds(5f);
+		Destructor.DoCleanup(fe);
 	}
 
 	void GetInput() {
