@@ -2,6 +2,12 @@
 	Earth,
 	Fire,
 	Ice,
+
+
+
+	SpellCooldown,
+	Unknkown,
+
 }
 
 public enum SpellType {

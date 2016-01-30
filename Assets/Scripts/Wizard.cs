@@ -13,11 +13,16 @@ public class Wizard : MonoBehaviour {
 	Vector3 baseHPScale;
 	Transform hpBar;
 
+	Renderer spellCircle;
+
 	List<DefenseSpell> defenses = new List<DefenseSpell>();
 
 	void Start() {
 		input = GetComponent<WizardInput>();
 		input.wizard = this;
+
+		spellCircle = transform.FindChild("SpellCircle").GetComponent<Renderer>();
+		spellCircle.enabled = false;
 
 		hpBar = transform.FindChild("HP");
 		baseHPScale = hpBar.transform.localScale;
@@ -35,6 +40,17 @@ public class Wizard : MonoBehaviour {
 				Debug.Log("expire defense");
 				--i;
 			}
+		}
+
+		var castState = input.GetCastState();
+
+		if (castState == null) {
+			spellCircle.enabled = false;
+		} else {
+			spellCircle.enabled = true;
+			spellCircle.material.SetColor("_TintColor", castState.color);
+			//spellCircle.material.color = castState.color;
+			spellCircle.transform.Rotate(Vector3.forward, Time.deltaTime * 20);
 		}
 
 	

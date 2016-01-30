@@ -33,6 +33,12 @@ public class WizardInput : MonoBehaviour {
 		inputFreezeTime = Time.time;
 	}
 
+	public bool InputFrozen {
+		get {
+			return inputFreezeTime != 0 && Time.time - inputFreezeTime < cooldownTime;
+		}
+	}
+
 	void GetInput() {
 		if (wizard.playerNumber == 1) {
 			if (Input.GetKeyDown(KeyCode.W))
@@ -73,13 +79,14 @@ public class WizardInput : MonoBehaviour {
 		}
 
 		//allow aiming, but not new spell strokes if in cooldown
-		if (inputFreezeTime != 0 && Time.time - inputFreezeTime < cooldownTime) {
+		if (InputFrozen) {
 			input = "";
 		}
 	}
 
 	void Special() {
 		if (input.Length == 0) wizard.ChangeTarget();
+
 		else input = "";
 	}
 
@@ -91,6 +98,49 @@ public class WizardInput : MonoBehaviour {
 		if (numIn != input.Length) {
 			Recognize();
 		}
+	}
+
+	public class CastState {
+		public float percent;
+		public Color color;
+		public ElementType element;
+	}
+
+	public CastState GetCastState() {
+		if (InputFrozen) {
+			return new CastState{
+				percent = 0,
+				color = Color.black,
+				element = ElementType.SpellCooldown,
+			};
+		}
+
+		if (input == "") return null;
+
+
+		//what spell is coming?
+		var numMatched = 0;
+		Codex.SpellRecipe lastMatch = null;
+
+		foreach (var spell in Codex.spells) {
+			if (spell.sequence.StartsWith(input)) {
+				++numMatched;
+				lastMatch = spell;
+			}
+		}
+
+		if (numMatched == 1) {
+			return new CastState {
+				color = lastMatch.color,
+				element = lastMatch.element,
+			};
+		} else {
+			return new CastState {
+				color = Color.gray,
+				element = ElementType.Unknkown,
+			};
+		}
+
 	}
 
 	protected void Recognize() {
