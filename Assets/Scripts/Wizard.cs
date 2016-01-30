@@ -37,7 +37,6 @@ public class Wizard : MonoBehaviour {
 			if (defenses[i].IsExpired) {
 				Destructor.DoCleanup(defenses[i].gameObject);
 				defenses.RemoveAt(i);
-				Debug.Log("expire defense");
 				--i;
 			}
 		}
@@ -67,7 +66,7 @@ public class Wizard : MonoBehaviour {
 
 			spell.type = spellType;
 			spell.element = element;
-			spell.target = target;
+			spell.ResetTo(this, target);
 		} else {
 			var go = Instantiate(GameManager.Instance.defendEffcts[(int)element]);
 			go.name = "Defense";
@@ -99,8 +98,9 @@ public class Wizard : MonoBehaviour {
 				defenses.RemoveAt(0);
 				slightlyDefended = true;
 			} else {
-				//matches element, cancel instantly
-				Destroy(spell.gameObject);
+				//matches element, reflect
+				spell.ResetTo(spell.target, spell.caster);
+				
 
 				//no damage
 				return;
@@ -109,6 +109,9 @@ public class Wizard : MonoBehaviour {
 
 		if (slightlyDefended) hp -= 18;
 		else hp -= 20;
+
+		Destructor.DoCleanup(spell.gameObject);
+		Destroy(spell);
 
 		UpdateDamage();
 	}
