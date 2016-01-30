@@ -5,6 +5,6 @@
 }
 
 public enum SpellType {
-	Arttack,
+	Attack,
 	Defend,
 }
