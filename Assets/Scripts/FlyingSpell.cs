@@ -4,6 +4,7 @@ using System.Collections;
 public class FlyingSpell : MonoBehaviour {
 
 	public Wizard target;
+	public Wizard caster;
 	public ElementType element;
 	public SpellType type;
 
@@ -12,11 +13,18 @@ public class FlyingSpell : MonoBehaviour {
 	float flyTime = 5;
 
 	void Start() {
+	}
+
+	public void ResetTo(Wizard sender, Wizard target) {
+		this.target = target;
+		this.caster = sender;
+
 		castTime = Time.time;
 		initialPos = transform.position;
 
-		transform.LookAt (target.transform.position);
+		transform.LookAt(target.transform.position);
 
+		flyTime *= .8f;
 	}
 	
 	void Update() {
@@ -28,8 +36,6 @@ public class FlyingSpell : MonoBehaviour {
 
 		if (t >= 1) {
 			target.BeenHit(this);
-			Destructor.DoCleanup(gameObject);
-			Destroy(this);
 		} else {
 			transform.position = Vector3.Lerp(initialPos, target.transform.position, t);
 		}

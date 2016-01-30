@@ -13,21 +13,21 @@ public static class Codex {
 
 	public static List<SpellRecipe> spells = new List<SpellRecipe> {
 		new SpellRecipe{
-			name = "Ice Attack",
+			name = "Icicle Crash",
 			type = SpellType.Attack,
 			element = ElementType.Ice,
 			sequenceLength = 5,
 			color = Color.blue,
 		},
 		new SpellRecipe{
-			name = "Fire Attack",
+			name = "Lava Lash",
 			type = SpellType.Attack,
 			element = ElementType.Fire,
 			sequenceLength = 5,
 			color = Color.red,
 		},
 		new SpellRecipe{
-			name = "Earth Attack",
+			name = "Shale Shatter",
 			type = SpellType.Attack,
 			element = ElementType.Earth,
 			sequenceLength = 5,
@@ -35,21 +35,21 @@ public static class Codex {
 		},
 
 		new SpellRecipe{
-			name = "Block Ice",
+			name = "Ice Aegis",
 			type = SpellType.Defend,
 			element = ElementType.Ice,
 			sequenceLength = 4,
 			color = Color.blue,
 		},
 		new SpellRecipe{
-			name = "Block Fire",
+			name = "Lava Aegis",
 			type = SpellType.Defend,
 			element = ElementType.Fire,
 			sequenceLength = 4,
 			color = Color.red,
 		},
 		new SpellRecipe{
-			name = "Block Earth",
+			name = "Stone Aegis",
 			type = SpellType.Defend,
 			element = ElementType.Earth,
 			sequenceLength = 4,
