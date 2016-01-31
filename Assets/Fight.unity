@@ -1066,30 +1066,6 @@ Prefab:
       propertyPath: m_Name
       value: Wizard 1
       objectReference: {fileID: 0}
-    - target: {fileID: 495804, guid: 870076c85609a984abb5691ea541a8b5, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1.6157396
-      objectReference: {fileID: 0}
-    - target: {fileID: 495804, guid: 870076c85609a984abb5691ea541a8b5, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1.615738
-      objectReference: {fileID: 0}
-    - target: {fileID: 495804, guid: 870076c85609a984abb5691ea541a8b5, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1.615738
-      objectReference: {fileID: 0}
-    - target: {fileID: 495804, guid: 870076c85609a984abb5691ea541a8b5, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -0.355
-      objectReference: {fileID: 0}
-    - target: {fileID: 495804, guid: 870076c85609a984abb5691ea541a8b5, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 2.169
-      objectReference: {fileID: 0}
-    - target: {fileID: 495804, guid: 870076c85609a984abb5691ea541a8b5, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 870076c85609a984abb5691ea541a8b5, type: 2}
   m_IsPrefabParent: 0

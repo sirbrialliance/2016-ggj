@@ -5,7 +5,8 @@ using System.Collections.Generic;
 public class WizardInput : MonoBehaviour {
 	string input = "";
 
-	const float cooldownTime = 1.5f;
+	const float cooldownTime = .4f;
+	//const float cooldownTime = 1.5f;
 
 
 	public Wizard wizard;

@@ -8,6 +8,6 @@ public class Destructor {
 			pe.Stop();
 		}
 
-		GameObject.Destroy(obj.gameObject, 20);
+		GameObject.Destroy(obj.gameObject, 3);
 	}
 }
