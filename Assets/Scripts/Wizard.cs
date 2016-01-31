@@ -10,7 +10,6 @@ public class Wizard : MonoBehaviour {
 
 	WizardInput input;
 	Wizard target;
-	Vector3 baseHPScale;
 	Transform hpBar;
 
 	Renderer spellCircle;
@@ -25,7 +24,6 @@ public class Wizard : MonoBehaviour {
 		spellCircle.enabled = false;
 
 		hpBar = transform.FindChild("HP");
-		baseHPScale = hpBar.transform.localScale;
 
 		UpdateDamage();
 	}
@@ -117,9 +115,28 @@ public class Wizard : MonoBehaviour {
 	}
 
 	void UpdateDamage() {
-		var scale = baseHPScale;
-		scale.y *= hp / (float)maxHP;
-		hpBar.localScale = scale;
+
+		var hpSR = hpBar.GetComponent<SpriteRenderer>();
+		var sprite = hpSR.sprite;
+		int aa = 331, ab = 1105, aw = 1200;
+
+		var hpPercent = hp / (float)maxHP;
+
+		var r = sprite.rect;
+		//Debug.Log("r brfore " + r);
+		r.xMax = aa + (ab - aa) * hpPercent;
+		sprite = Sprite.Create(
+			sprite.texture, r, 
+			//aw == r.width -> .5
+			//aw == 331, 3
+			new Vector2(
+				.5f,
+				//r.width / (float)aw + .5f, 
+				.5f
+			)
+		);
+		hpSR.sprite = sprite;
+		//Debug.Log("r after " + r);
 
 		if (hp <= 0) GameManager.Instance.KillPlayer(this);
 	}
