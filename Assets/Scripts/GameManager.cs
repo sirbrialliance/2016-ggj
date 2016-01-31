@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour {
 	public List<GameObject> defendEffcts;
 	public GameObject fizzleEffect;
 
+	public List<Sprite> casterStates;
+
 	public GameObject winScreen;
 
 	public Wizard GetNext(Wizard me, Wizard currTarget) {

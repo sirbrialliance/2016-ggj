@@ -311,6 +311,10 @@ MonoBehaviour:
   - {fileID: 127748, guid: 1ebce267a04a77844a1884bd79cf1947, type: 2}
   - {fileID: 127748, guid: 461c7010124cc62478a0d17128ce7a45, type: 2}
   fizzleEffect: {fileID: 127748, guid: c830cf01086808f4f8cf1678b5953b83, type: 2}
+  casterStates:
+  - {fileID: 21300000, guid: 95a4f43dd860ede439ad94c65f133711, type: 3}
+  - {fileID: 21300000, guid: 1fb020644fd1d0e4ba20a32f8c4618b5, type: 3}
+  - {fileID: 21300000, guid: b18cbfeb5c7b66c44b20bce671a94997, type: 3}
   winScreen: {fileID: 1569744764}
 --- !u!4 &169444820
 Transform:
@@ -421,15 +425,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.216}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: e4ff79c351e73304783ac70bbee3d353, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -592,8 +596,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.5, y: 0}
-  m_SizeDelta: {x: -12, y: -12}
+  m_AnchoredPosition: {x: 0, y: 2}
+  m_SizeDelta: {x: -21, y: -26}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &778185045
 MonoBehaviour:
